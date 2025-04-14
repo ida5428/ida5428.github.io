@@ -1,0 +1,12 @@
+body {
+   background-color: rgb(255, 252, 255);
+   font-family: monospace;
+   font-size: 18px;
+}
+
+iframe {
+   margin: 5px;
+   padding: 5px;
+   border-radius: 15px;
+   background-color: white;
+   }
