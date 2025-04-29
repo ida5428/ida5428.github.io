@@ -1,17 +1,19 @@
-/* Hide scrollbar for Chrome, Safari and Opera */
-.example::-webkit-scrollbar {
-   display: none;
+* {
+   box-sizing: border-box;
+   margin: 0px;
+   padding: 0px;
+
+   -ms-overflow-style: none;
+   scrollbar-width: none;
 }
 
- /* Hide scrollbar for IE, Edge and Firefox */
-.example {
-   -ms-overflow-style: none;  /* IE and Edge */
-   scrollbar-width: none;  /* Firefox */
+::-webkit-scrollbar {
+   display: none;
 }
 
 :root {
    --base-colour: white;
-   --base-variant: rgb(240,240,240);
+   --base-variant: rgb(230,230,230);
    --text-colour: rgb(50,50,50);
    --secondary-text-colour: rgb(0,0,0);
 }
@@ -21,16 +23,9 @@
    --base-variant: rgb(60,60,60);
    --text-colour: rgb(255,255,255);
    --secondary-text-colour: rgb(255,255,255);
-}
-
-.dark-mode header{
-   border-bottom: 0.01px solid white;
-}
-
-* {
-   box-sizing: border-box;
-   margin: 0px;
-   padding: 0px;
+   header {
+      border-bottom: 0.01px solid white;
+   }
 }
 
 body {
@@ -42,14 +37,12 @@ body {
 
 main {
    margin: 15px;
-   font-size: 18px;
 }
 
 .desmos iframe {
    border-radius: 15px;
    background-color: white;
    padding: 5px;
-   min-width: 400px;
 }
 
 header {
@@ -61,57 +54,95 @@ header {
    position: sticky;
    top: 0px;
    border-bottom: 1px solid;
-}
 
-header p {
-   font-size: 16px;
-   cursor: default;
+   p {
+      font-size: 16px;
+      cursor: default;
+   }
 }
 
 .nav-links {
    list-style: none;
    display: inline-flex;
+
+   li {
+      display: inline;
+   }
+
+   a {
+      text-decoration: none;
+      color: var(--text-colour);
+      font-size: 16px;
+      padding: 4px 6px;
+   }
+
+   a:hover {
+      text-decoration: underline;
+      background-color: var(--base-variant);
+      color: var(--secondary-text-colour);
+      transition: all 0.2s ease 0s;
+      padding: 4px 6px;
+      border-radius: 5px;
+   }
 }
 
-.nav-links li {
-   display: inline;
-}
-
-.nav-links a{
-   text-decoration: none;
-   color: var(--text-colour);
-   font-size: 16px;
-   padding: 4px 6px;
-}
-
-.nav-links li a:hover {
-   text-decoration: underline;
-   background-color: var(--base-variant);
-   color: var(--secondary-text-colour);
-   transition: all 0.2s ease 0s;
-   padding: 4px 6px;
-   border-radius: 5px;
-}
-
-#theme-switch{
+#theme-toggle {
    vertical-align: top;
    display: inline-flex;
    cursor: pointer;
- }
-
-#theme-switch :last-child{
-   display: none;
-}
-.dark-mode #theme-switch :first-child{
-   display: none;
-}
-.dark-mode #theme-switch :last-child{
-   display:inline
 }
 
-.thing {
-   position: fixed;
-   top: 20px;
-   right: 20px;
-   scale: 5%;
+#theme-toggle :nth-child(2), :nth-child(3), :nth-child(4) {
+   display: none;
+}
+
+#theme-toggle:hover {
+   :nth-child(1) {
+      display: none;
+   }
+
+   :nth-child(2) {
+      display: inline;
+      transform: scale(1.5);
+      background-color: var(--base-variant);
+      padding: 2px;
+      border-radius: 100px;
+   }
+}
+
+.dark-mode #theme-toggle {
+   :nth-child(1) {
+      display: none;
+   }
+
+   :nth-child(3) {
+      display: inline;
+   }
+}
+
+.dark-mode #theme-toggle:hover {
+   :nth-child(2) {
+      display: none;
+   }
+
+   :nth-child(3) {
+      display: none;
+   }
+
+   :nth-child(4) {
+      display: inline;
+      transform: scale(1.5);
+      background-color: var(--base-variant);
+      padding: 2px;
+      border-radius: 100px;
+   }
+}
+
+@media screen and (max-width: 550px) {
+   .desmos iframe {
+      width: 90vw;
+      height: 90vw;
+      max-width: 500px;
+      max-height: 500px;
+   }
 }
