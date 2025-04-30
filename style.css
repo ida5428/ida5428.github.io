@@ -4,7 +4,7 @@
    padding: 0px;
 
    -ms-overflow-style: none;
-   scrollbar-width: none;
+   scrollbar-width: none;;
 }
 
 ::-webkit-scrollbar {
@@ -23,67 +23,6 @@
    --base-variant: rgb(60,60,60);
    --text-colour: rgb(255,255,255);
    --secondary-text-colour: rgb(255,255,255);
-   header {
-      border-bottom: 0.01px solid white;
-   }
-}
-
-body {
-   background-color: var(--base-colour);
-   font-family: monospace;
-   font-size: 18px;
-   color: var(--text-colour);
-}
-
-main {
-   margin: 15px;
-}
-
-.desmos iframe {
-   border-radius: 15px;
-   background-color: white;
-   padding: 5px;
-}
-
-header {
-   background-color: var(--base-colour);
-   padding: 10px 20px;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   position: sticky;
-   top: 0px;
-   border-bottom: 1px solid;
-
-   p {
-      font-size: 16px;
-      cursor: default;
-   }
-}
-
-.nav-links {
-   list-style: none;
-   display: inline-flex;
-
-   li {
-      display: inline;
-   }
-
-   a {
-      text-decoration: none;
-      color: var(--text-colour);
-      font-size: 16px;
-      padding: 4px 6px;
-   }
-
-   a:hover {
-      text-decoration: underline;
-      background-color: var(--base-variant);
-      color: var(--secondary-text-colour);
-      transition: all 0.2s ease 0s;
-      padding: 4px 6px;
-      border-radius: 5px;
-   }
 }
 
 #theme-toggle {
@@ -138,11 +77,104 @@ header {
    }
 }
 
+body {
+   background-color: var(--base-colour);
+   font-family: monospace;
+   font-size: 18px;
+   color: var(--text-colour);
+}
+
+header {
+   background-color: var(--base-colour);
+   padding: 10px 20px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   position: sticky;
+   top: 0px;
+   border-bottom: 1px ridge;
+   z-index: 100;
+
+   p {
+      font-size: 20px;
+      cursor: default;
+   }
+}
+
+.nav-links {
+   list-style: none;
+   display: inline-flex;
+
+   li {
+      display: inline;
+   }
+
+   a {
+      text-decoration: none;
+      color: var(--text-colour);
+      font-size: 20px;
+      padding: 4px 6px;
+   }
+
+   a:hover {
+      text-decoration: underline;
+      background-color: var(--base-variant);
+      color: var(--secondary-text-colour);
+      transition: all 0.2s ease 0s;
+      padding: 4px 6px;
+      border-radius: 5px;
+   }
+}
+
+main {
+   margin: 15px;
+   text-align: center;
+}
+
+.about-me, .experience{
+   margin-top: 30px;
+   display: inline-flex;
+   align-items: baseline;
+}
+
+.am-title, .exp-title {
+   width: 200px;
+   font-size: 26px;
+   color: var(--secondary-text-colour);
+   position: sticky;
+   top: 60px;
+   text-align: right;
+}
+
+.am-content, .exp-content {
+   max-width: 50vw;
+   margin: 0px 5vw;
+   text-align: left;
+}
+
 @media screen and (max-width: 550px) {
    .desmos iframe {
       width: 90vw;
       height: 90vw;
       max-width: 500px;
       max-height: 500px;
+   }
+
+   .about-me, .experience{
+      display: grid;
+      margin-top: 30px;
+   }
+
+   .am-title, .exp-title {
+      position: relative;
+      top: 0px;
+      font-size: 22px;
+      text-align: left;
+   }
+
+   .am-content, .exp-content {
+      font-size: 18px;
+      margin: 10px 10px;
+      max-width:fit-content;
    }
 }
