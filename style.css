@@ -229,6 +229,13 @@ main {
    text-align: left;
 }
 
+/* Desmos Iframe Values */
+.desmos iframe {
+   border-radius: 15px;
+   background-color: white;
+   padding: 5px;
+}
+
 /* Media Screen Values */
 @media screen and (max-width: 550px) {
    .desmos iframe {
