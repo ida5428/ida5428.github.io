@@ -30,21 +30,47 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Function runs on scrolling
+// Function runs on scrolling and on window resize
 window.onscroll = function() {scrollIndicator()};
+window.onresize = function() {scrollIndicator()};
+
+// Also check on initial load
+document.addEventListener('DOMContentLoaded', scrollIndicator);
 
 // Function to show scrolling indicator
-// Code from W3Schools, added my own if statement to change style opacity
+// Modified code form W3Schools
 function scrollIndicator() {
+    const scrollUpButton = document.querySelector(".scroll-up");
+    const scrollDownButton = document.querySelector(".scroll-down");
+
+    // Get the full height and viewport height
+    const fullHeight = Math.max(
+        document.body.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.clientHeight,
+        document.documentElement.scrollHeight,
+        document.documentElement.offsetHeight
+    );
+    const viewportHeight = window.innerHeight;
+
+    // Check if page is scrollable
+    if (fullHeight <= viewportHeight) {
+        scrollUpButton.style.display = "none";
+        scrollDownButton.style.display = "none";
+        return;
+    }
+
     var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     var scrolled = (winScroll / height);
-    document.querySelector(".scroll-up").style.display = "none";
-    document.querySelector(".scroll-down").style.display = "none";
-    if (scrolled >= 1) {
-        document.querySelector(".scroll-up").style.display = "flex";
+
+    scrollUpButton.style.display = "none";
+    scrollDownButton.style.display = "none";
+
+    if (scrolled >= 0.99) {
+        scrollUpButton.style.display = "flex";
     } else {
-        document.querySelector(".scroll-down").style.display = "flex";
+        scrollDownButton.style.display = "flex";
     }
 }
 

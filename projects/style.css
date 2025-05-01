@@ -2,11 +2,7 @@
    Global Styles
    =========================== */
 * {
-   background-color: var(--base-colour);
    box-sizing: border-box;
-   color: var(--text-colour);
-   font-family: monospace;
-   font-size: 18px;
    margin: 0;
    padding: 0;
 
@@ -236,7 +232,6 @@ header p {
    =========================== */
 main {
    margin: 15px;
-   margin-bottom: 100px;
    text-align: center;
 }
 
