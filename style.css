@@ -1,265 +1,310 @@
-/* Default Values */
+/* ===========================
+   Global Styles
+   =========================== */
 * {
+   background-color: var(--base-colour);
    box-sizing: border-box;
-   margin: 0px;
-   padding: 0px;
+   color: var(--text-colour);
+   font-family: monospace;
+   font-size: 18px;
+   margin: 0;
+   padding: 0;
 
+   /* Hide Scroll Bar */
    -ms-overflow-style: none;
-   scrollbar-width: none;;
+   scrollbar-width: none;
 }
 
-::-webkit-scrollbar {
+/* Hide Scroll Bar */
+:-webkit-scrollbar {
    display: none;
 }
 
+/* ===========================
+   CSS Variables
+   =========================== */
 :root {
    --base-colour: white;
-   --base-variant-1: rgb(230,230,230);
-   --base-variant-2: rgb(245,245,245);
-   --text-colour: rgb(50,50,50);
-   --secondary-text-colour: rgb(0,0,0);
+   --base-variant-1: rgb(230, 230, 230);
+   --base-variant-2: rgb(245, 245, 245);
+   --secondary-text-colour: rgb(0, 0, 0);
+   --text-colour: rgb(50, 50, 50);
 }
 
 .dark-mode {
-   --base-colour: rgb(30,30,30);
-   --base-variant-1: rgb(50,50,50);
-   --base-variant-2: rgb(35,35,35);
-   --text-colour: rgb(255,255,255);
-   --secondary-text-colour: rgb(255,255,255);
+   --base-colour: rgb(30, 30, 30);
+   --base-variant-1: rgb(50, 50, 50);
+   --base-variant-2: rgb(35, 35, 35);
+   --secondary-text-colour: rgb(255, 255, 255);
+   --text-colour: rgb(255, 255, 255);
 }
 
-/* Theme Toggle */
+/* ===========================
+   Theme Toggle Styles
+   =========================== */
 #theme-toggle {
-   vertical-align: top;
-   display: inline-flex;
-   cursor: pointer;
    background-color: var(--base-variant-2);
    border-radius: 100px;
+   cursor: pointer;
+   display: inline-flex;
+   vertical-align: top;
 }
 
-#theme-toggle :nth-child(2), :nth-child(3), :nth-child(4) {
+#theme-toggle :nth-child(2),
+#theme-toggle :nth-child(3),
+#theme-toggle :nth-child(4) {
    display: none;
 }
 
-#theme-toggle:hover {
-   :nth-child(1) {
-      display: none;
-   }
-
-   :nth-child(2) {
-      display: flex;
-      transform: scale(1.5);
-      background-color: var(--base-variant-1);
-      padding: 2px;
-      border-radius: 100px;
-   }
+#theme-toggle:hover :nth-child(1) {
+   display: none;
 }
 
-.dark-mode #theme-toggle {
-   :nth-child(1) {
-      display: none;
-   }
-
-   :nth-child(3) {
-      display: flex;
-   }
+#theme-toggle:hover :nth-child(2) {
+   background-color: var(--base-variant-1);
+   border-radius: 100px;
+   display: flex;
+   padding: 2px;
+   transform: scale(1.5);
 }
 
-.dark-mode #theme-toggle:hover {
-   :nth-child(2) {
-      display: none;
-   }
-
-   :nth-child(3) {
-      display: none;
-   }
-
-   :nth-child(4) {
-      display: flex;
-      transform: scale(1.5);
-      background-color: var(--base-variant-1);
-      padding: 2px;
-      border-radius: 100px;
-   }
+.dark-mode #theme-toggle :nth-child(1) {
+   display: none;
 }
 
-/* Body Values */
+.dark-mode #theme-toggle :nth-child(3) {
+   display: flex;
+}
+
+.dark-mode #theme-toggle:hover :nth-child(2) {
+   display: none;
+}
+
+.dark-mode #theme-toggle:hover :nth-child(3) {
+   display: none;
+}
+
+.dark-mode #theme-toggle:hover :nth-child(4) {
+   background-color: var(--base-variant-1);
+   border-radius: 100px;
+   display: flex;
+   padding: 2px;
+   transform: scale(1.5);
+}
+
+/* ===========================
+   Body Styles
+   =========================== */
 body {
    background-color: var(--base-colour);
+   color: var(--text-colour);
    font-family: monospace;
    font-size: 18px;
-   color: var(--text-colour);
 }
 
-/* Header Values */
+/* ===========================
+   Header Styles
+   =========================== */
 header {
+   align-items: center;
    background-color: var(--base-colour);
-   padding: 12px 20px;
+   border-bottom: 1px ridge;
    display: flex;
    justify-content: space-between;
-   align-items: center;
+   padding: 12px 20px;
    position: sticky;
-   top: 0px;
-   border-bottom: 1px ridge;
+   top: 0;
    z-index: 100;
-
-   p {
-      font-size: 20px;
-      cursor: default;
-   }
 }
 
-/* Header .nav-link Values */
+header p {
+   cursor: default;
+   font-size: 20px;
+}
+
+/* ===========================
+   Navigation Styles
+   =========================== */
 .nav-links {
-   list-style: none;
    display: inline-flex;
-
-   li {
-      display: inline;
-   }
-
-   a {
-      text-decoration: none;
-      color: var(--text-colour);
-      font-size: 20px;
-      padding: 4px 6px;
-   }
-
-   a:hover {
-      text-decoration: underline;
-      background-color: var(--base-variant-1);
-      color: var(--secondary-text-colour);
-      transition: all 0.2s ease 0s;
-      padding: 4px 6px;
-      border-radius: 5px;
-   }
+   list-style: none;
 }
 
+.nav-links li {
+   display: inline;
+}
 
-/* Scroll Button Switcher */
-.scroll-indicator, .scroll-button {
+.nav-links a {
+   color: var(--text-colour);
+   font-size: 20px;
+   padding: 4px 6px;
+   text-decoration: none;
+}
+
+.nav-links a:hover {
+   background-color: var(--base-variant-1);
+   border-radius: 5px;
+   color: var(--secondary-text-colour);
+   padding: 4px 6px;
+   text-decoration: underline;
+   transition: all 0.2s ease;
+}
+
+/* ===========================
+   Scroll Button Styles
+   =========================== */
+.scroll-down,
+.scroll-up {
+   align-items: center;
    display: flex;
    justify-content: center;
-   align-items: center;
-
-   box-icon {
-      position: fixed;
-      background-color: var(--base-variant-2);
-      border-radius: 100px;
-      bottom: 30px;
-   }
 }
 
-.scroll-button :nth-child(2), :nth-child(3), :nth-child(4), .scroll-indicator :nth-child(2), :nth-child(3), :nth-child(4){
+.scroll-down box-icon,
+.scroll-up box-icon {
+   background-color: var(--base-variant-2);
+   border-radius: 100px;
+   bottom: 30px;
+   position: fixed;
+}
+
+.scroll-up {
    display: none;
 }
 
-#scroll-feature:hover {
-   box-icon {
-      background-color: var(--base-variant-1);
-      transform: scale(1.1);
-   }
-
-   .scroll-indicator :nth-child(1), .scroll-button :nth-child(1) {
-      display: none;
-   }
-
-   .scroll-indicator :nth-child(2), .scroll-button :nth-child(2) {
-      display: flex;
-   }
+.scroll-up :nth-child(2),
+.scroll-up :nth-child(3),
+.scroll-up :nth-child(4),
+.scroll-down :nth-child(2),
+.scroll-down :nth-child(3),
+.scroll-down :nth-child(4) {
+   display: none;
 }
 
-.dark-mode #scroll-feature {
-   .scroll-indicator :nth-child(1), .scroll-button :nth-child(1) {
-      display: none;
-   }
-   .scroll-indicator :nth-child(3), .scroll-button :nth-child(3) {
-      display: flex;
-   }
+#scroll-indicator:hover box-icon {
+   background-color: var(--base-variant-1);
+   transform: scale(1.1);
 }
 
-.dark-mode #scroll-feature:hover {
-   box-icon {
-      background-color: var(--base-variant-1);
-      transform: scale(1.1);
-   }
-
-   .scroll-indicator :nth-child(1), .scroll-button :nth-child(1) {
-      display: none;
-   }
-   .scroll-indicator :nth-child(3), .scroll-button :nth-child(3) {
-      display: flex;
-   }
-
-   .scroll-indicator :nth-child(3), .scroll-button :nth-child(3) {
-      display: none;
-   }
-
-   .scroll-indicator :nth-child(4), .scroll-button :nth-child(4) {
-      display: flex;
-   }
+#scroll-indicator:hover .scroll-down :nth-child(1),
+#scroll-indicator:hover .scroll-up :nth-child(1) {
+   display: none;
 }
 
-/* Main Values */
+#scroll-indicator:hover .scroll-down :nth-child(2),
+#scroll-indicator:hover .scroll-up :nth-child(2) {
+   display: flex;
+}
+
+.dark-mode #scroll-indicator .scroll-down :nth-child(1),
+.dark-mode #scroll-indicator .scroll-up :nth-child(1) {
+   display: none;
+}
+
+.dark-mode #scroll-indicator .scroll-down :nth-child(3),
+.dark-mode #scroll-indicator .scroll-up :nth-child(3) {
+   display: flex;
+}
+
+.dark-mode #scroll-indicator:hover box-icon {
+   background-color: var(--base-variant-1);
+   transform: scale(1.1);
+}
+
+.dark-mode #scroll-indicator:hover .scroll-down :nth-child(1),
+.dark-mode #scroll-indicator:hover .scroll-up :nth-child(1) {
+   display: none;
+}
+
+.dark-mode #scroll-indicator:hover .scroll-down :nth-child(3),
+.dark-mode #scroll-indicator:hover .scroll-up :nth-child(3) {
+   display: flex;
+}
+
+.dark-mode #scroll-indicator:hover .scroll-down :nth-child(3),
+.dark-mode #scroll-indicator:hover .scroll-up :nth-child(3) {
+   display: none;
+}
+
+.dark-mode #scroll-indicator:hover .scroll-down :nth-child(4),
+.dark-mode #scroll-indicator:hover .scroll-up :nth-child(4) {
+   display: flex;
+}
+
+/* ===========================
+   Main Content Styles
+   =========================== */
 main {
    margin: 15px;
-   text-align: center;
    margin-bottom: 100px;
+   text-align: center;
 }
 
-/* About Me + Experience Values */
-.about-me, .experience{
-   margin-top: 30px;
-   display: inline-flex;
+/* ===========================
+   About Me and Experience Styles
+   =========================== */
+.about-me,
+.experience {
    align-items: baseline;
+   display: inline-flex;
+   margin-top: 30px;
 }
 
-.am-title, .exp-title {
-   width: 200px;
-   font-size: 26px;
+.am-title,
+.exp-title {
    color: var(--secondary-text-colour);
+   font-size: 26px;
    position: sticky;
-   top: 70px;
    text-align: right;
+   top: 70px;
+   width: 200px;
 }
 
-.am-content, .exp-content {
+.am-content,
+.exp-content {
+   margin: 0 5vw;
    max-width: 45vw;
-   margin: 0px 5vw;
    text-align: left;
 }
 
-/* Desmos Iframe Values */
+/* ===========================
+   Desmos iframe Styles
+   =========================== */
 .desmos iframe {
-   border-radius: 15px;
    background-color: white;
+   border-radius: 15px;
    padding: 5px;
 }
 
-/* Media Screen Values */
+/* ===========================
+   Media Queries
+   =========================== */
 @media screen and (max-width: 550px) {
    .desmos iframe {
-      width: 90vw;
       height: 90vw;
-      max-width: 500px;
       max-height: 500px;
+      max-width: 500px;
+      width: 90vw;
    }
 
-   .about-me, .experience{
+   .about-me,
+   .experience {
       display: grid;
       margin-top: 30px;
    }
 
-   .am-title, .exp-title {
-      position: relative;
-      top: 0px;
+   .am-title,
+   .exp-title {
       font-size: 22px;
+      position: relative;
       text-align: left;
+      top: 0;
    }
 
-   .am-content, .exp-content {
+   .am-content,
+   .exp-content {
       font-size: 18px;
       margin: 10px 10px;
-      max-width:fit-content;
+      max-width: fit-content;
    }
 }

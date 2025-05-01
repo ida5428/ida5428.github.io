@@ -10,7 +10,7 @@ function setTheme(isDark) {
 }
 
 // Function to toggle theme
-function toggle() {
+function themeToggle() {
     const isDark = document.body.classList.toggle('dark-mode');
     localStorage.setItem('darkMode', isDark);
 }
@@ -39,11 +39,26 @@ function scrollIndicator() {
     var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     var scrolled = (winScroll / height);
+    document.querySelector(".scroll-up").style.display = "none";
+    document.querySelector(".scroll-down").style.display = "none";
     if (scrolled >= 1) {
-        document.querySelector(".scroll-indicator").style.opacity = 0;
-        document.querySelector(".scroll-button").style.opacity = 1;
+        document.querySelector(".scroll-up").style.display = "flex";
     } else {
-        document.querySelector(".scroll-indicator").style.opacity = 1;
-        document.querySelector(".scroll-button").style.opacity = 0;
+        document.querySelector(".scroll-down").style.display = "flex";
     }
+}
+
+function scrollTopFunction() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+function scrollBottomFunction() {
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    window.scrollTo({
+        top: height,
+        behavior: 'smooth'
+    });
 }

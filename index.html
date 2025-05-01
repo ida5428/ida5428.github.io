@@ -3,10 +3,10 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>ida5428 - Home</title>
+   <title>ida5428</title>
+   <link rel="icon" href="favicon.png" type="image/png">
    <link rel="stylesheet" href="style.css">
    <script src="script.js"></script>
-   <link rel="icon" href="favicon.png" type="image/png">
    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </head>
 <body>
@@ -17,7 +17,7 @@
          <ul class>
             <li><a href="#">Home</a></li>
             <li><a href="projects.html">Projects</a></li>
-            <li id="theme-toggle" onclick="toggle()">
+            <li id="theme-toggle" onclick="themeToggle()">
                <box-icon name='sun'></box-icon>
                <box-icon name='sun' type="solid"></box-icon>
                <box-icon name='moon' color="white"></box-icon>
@@ -28,14 +28,14 @@
    </header>
 
    <main>
-      <div id="scroll-feature">
-         <div class="scroll-indicator">
+      <div id="scroll-indicator">
+         <div class="scroll-down" onclick="scrollBottomFunction()">
             <box-icon name='chevron-down' size="md"></box-icon>
             <box-icon name='chevrons-down' size="md"></box-icon>
             <box-icon name='chevron-down' size="md" color="white"></box-icon>
             <box-icon name='chevrons-down' size="md" color="white"></box-icon>
          </div>
-         <div class="scroll-button">
+         <div class="scroll-up" onclick="scrollTopFunction()">
             <box-icon name='chevron-up' size="md"></box-icon>
             <box-icon name='chevrons-up' size="md"></box-icon>
             <box-icon name='chevron-up' size="md" color="white"></box-icon>
@@ -68,7 +68,6 @@
          </div>
          <div class="exp-content">
             <p>[experience content]
-               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus qui, et aliquam nesciunt vero rem officia? Quasi, debitis? Vel atque architecto quaerat, ducimus quo dolore? Molestias sequi quidem natus? Nostrum.
                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus qui, et aliquam nesciunt vero rem officia? Quasi, debitis? Vel atque architecto quaerat, ducimus quo dolore? Molestias sequi quidem natus? Nostrum.
                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus qui, et aliquam nesciunt vero rem officia? Quasi, debitis? Vel atque architecto quaerat, ducimus quo dolore? Molestias sequi quidem natus? Nostrum.
                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus qui, et aliquam nesciunt vero rem officia? Quasi, debitis? Vel atque architecto quaerat, ducimus quo dolore? Molestias sequi quidem natus? Nostrum.

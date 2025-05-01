@@ -17,7 +17,7 @@
          <ul class>
             <li><a href="index.html">Home</a></li>
             <li><a href="#">Projects</a></li>
-            <li id="theme-toggle" onclick="toggle()">
+            <li id="theme-toggle" onclick="themeToggle()">
                <box-icon name='sun'></box-icon>
                <box-icon name='sun' type="solid"></box-icon>
                <box-icon name='moon' color="white"></box-icon>
@@ -28,14 +28,14 @@
    </header>
 
    <main>
-      <div id="scroll-feature">
-         <div class="scroll-indicator">
+      <div id="scroll-indicator">
+         <div class="scroll-down" onclick="scrollBottomFunction()">
             <box-icon name='chevron-down' size="md"></box-icon>
             <box-icon name='chevrons-down' size="md"></box-icon>
             <box-icon name='chevron-down' size="md" color="white"></box-icon>
             <box-icon name='chevrons-down' size="md" color="white"></box-icon>
          </div>
-         <div class="scroll-button">
+         <div class="scroll-up" onclick="scrollTopFunction()">
             <box-icon name='chevron-up' size="md"></box-icon>
             <box-icon name='chevrons-up' size="md"></box-icon>
             <box-icon name='chevron-up' size="md" color="white"></box-icon>
@@ -43,16 +43,14 @@
          </div>
       </div>
 
-      <center>
-         <div class="desmos">
-            <iframe src="https://www.desmos.com/calculator/nt7gu8pcpo?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
-            <iframe src="https://www.desmos.com/calculator/dbckog4trw?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
-            <iframe src="https://www.desmos.com/calculator/98npub6smj?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
-            <iframe src="https://www.desmos.com/calculator/q9gjociyjy?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
-            <iframe src="https://www.desmos.com/calculator/4i4xbcuh0j?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
-            <iframe src="https://www.desmos.com/calculator/lmnu85emnz?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
-         </div>
-      </center>
+      <div class="desmos">
+         <iframe src="https://www.desmos.com/calculator/nt7gu8pcpo?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+         <iframe src="https://www.desmos.com/calculator/dbckog4trw?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+         <iframe src="https://www.desmos.com/calculator/98npub6smj?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+         <iframe src="https://www.desmos.com/calculator/q9gjociyjy?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+         <iframe src="https://www.desmos.com/calculator/4i4xbcuh0j?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+         <iframe src="https://www.desmos.com/calculator/lmnu85emnz?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+      </div>
    </main>
 
 </body>
