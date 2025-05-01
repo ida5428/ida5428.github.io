@@ -21,16 +21,18 @@
    =========================== */
 :root {
    --base-colour: rgb(255, 255, 255);
-   --base-variant-1: rgb(230, 230, 230);
-   --base-variant-2: rgb(245, 245, 245);
+   --base-variant-1: rgb(235, 235, 235);
+   --base-variant-2: rgb(220, 220, 220);
+   --base-variant-3: rgb(200, 200, 200);
    --secondary-text-colour: rgb(0, 0, 0);
    --text-colour: rgb(50, 50, 50);
 }
 
 .dark-mode {
    --base-colour: rgb(30, 30, 30);
-   --base-variant-1: rgb(50, 50, 50);
-   --base-variant-2: rgb(35, 35, 35);
+   --base-variant-1: rgb(45, 45, 45);
+   --base-variant-2: rgb(60, 60, 60);
+   --base-variant-3: rgb(75, 75, 75);
    --secondary-text-colour: rgb(255, 255, 255);
    --text-colour: rgb(255, 255, 255);
 }
@@ -39,11 +41,22 @@
    Theme Toggle Styles
    =========================== */
 #theme-toggle {
-   background-color: var(--base-variant-2);
+   background-color: var(--base-variant-1);
    border-radius: 100px;
    cursor: pointer;
    display: inline-flex;
-   vertical-align: top;
+   padding: 2px;
+}
+
+#theme-toggle:hover :nth-child(2),
+.dark-mode #theme-toggle:hover :nth-child(4) {
+   background-color: var(--base-variant-2);
+   border-radius: 100px;
+   display: flex;
+   padding: 1px;
+   transform: scale(1.5);
+   border: 1px solid var(--base-variant-1);
+   filter: drop-shadow(0px 0px 3px var(--base-variant-3));
 }
 
 #theme-toggle :nth-child(2),
@@ -52,40 +65,15 @@
    display: none;
 }
 
-#theme-toggle:hover :nth-child(1) {
-   display: none;
-}
-
-#theme-toggle:hover :nth-child(2) {
-   background-color: var(--base-variant-1);
-   border-radius: 100px;
-   display: flex;
-   padding: 2px;
-   transform: scale(1.5);
-}
-
-.dark-mode #theme-toggle :nth-child(1) {
+#theme-toggle:hover :nth-child(1),
+.dark-mode #theme-toggle :nth-child(1),
+.dark-mode #theme-toggle:hover :nth-child(2),
+.dark-mode #theme-toggle:hover :nth-child(3) {
    display: none;
 }
 
 .dark-mode #theme-toggle :nth-child(3) {
    display: flex;
-}
-
-.dark-mode #theme-toggle:hover :nth-child(2) {
-   display: none;
-}
-
-.dark-mode #theme-toggle:hover :nth-child(3) {
-   display: none;
-}
-
-.dark-mode #theme-toggle:hover :nth-child(4) {
-   background-color: var(--base-variant-1);
-   border-radius: 100px;
-   display: flex;
-   padding: 2px;
-   transform: scale(1.5);
 }
 
 /* ===========================
@@ -107,33 +95,30 @@ header {
    border-bottom: 1px ridge;
    display: flex;
    justify-content: space-between;
-   padding: 12px 20px;
+   padding: 10px 20px;
    position: sticky;
    top: 0;
    z-index: 100;
+   font-size: 20px;
 }
 
 header p {
    cursor: default;
-   font-size: 20px;
 }
 
 /* ===========================
    Navigation Styles
    =========================== */
-.nav-links {
-   display: inline-flex;
+.nav-links ul {
    list-style: none;
-}
-
-.nav-links li {
-   display: inline;
+   display: inline-flex;
+   align-items: center;
 }
 
 .nav-links a {
    color: var(--text-colour);
-   font-size: 20px;
    padding: 4px 6px;
+   margin-right: 10px;
    text-decoration: none;
 }
 
@@ -158,72 +143,39 @@ header p {
 
 .scroll-down box-icon,
 .scroll-up box-icon {
-   background-color: var(--base-variant-2);
+   background-color: var(--base-variant-1);
    border-radius: 100px;
    bottom: 30px;
    position: fixed;
+   border: 2px solid var(--base-variant-2);
+   filter: drop-shadow(0px 0px 5px var(--base-variant-3));
 }
 
-.scroll-up {
-   display: none;
-}
-
-.scroll-up :nth-child(2),
-.scroll-up :nth-child(3),
-.scroll-up :nth-child(4),
-.scroll-down :nth-child(2),
-.scroll-down :nth-child(3),
-.scroll-down :nth-child(4) {
-   display: none;
-}
-
-#scroll-indicator:hover box-icon {
-   background-color: var(--base-variant-1);
-   transform: scale(1.1);
-}
-
-#scroll-indicator:hover .scroll-down :nth-child(1),
-#scroll-indicator:hover .scroll-up :nth-child(1) {
-   display: none;
-}
-
-#scroll-indicator:hover .scroll-down :nth-child(2),
-#scroll-indicator:hover .scroll-up :nth-child(2) {
-   display: flex;
-}
-
-.dark-mode #scroll-indicator .scroll-down :nth-child(1),
-.dark-mode #scroll-indicator .scroll-up :nth-child(1) {
-   display: none;
-}
-
-.dark-mode #scroll-indicator .scroll-down :nth-child(3),
-.dark-mode #scroll-indicator .scroll-up :nth-child(3) {
-   display: flex;
-}
-
+#scroll-indicator:hover box-icon,
 .dark-mode #scroll-indicator:hover box-icon {
-   background-color: var(--base-variant-1);
-   transform: scale(1.1);
+   background-color: var(--base-variant-2);
+   transform: scale(1.2);
+   border: 2px solid var(--base-variant-1);
+   filter: drop-shadow(0px 0px 5px var(--base-variant-3));
 }
 
-.dark-mode #scroll-indicator:hover .scroll-down :nth-child(1),
-.dark-mode #scroll-indicator:hover .scroll-up :nth-child(1) {
+#scroll-indicator :nth-child(2),
+#scroll-indicator :nth-child(3),
+#scroll-indicator :nth-child(4) {
    display: none;
 }
 
-.dark-mode #scroll-indicator:hover .scroll-down :nth-child(3),
-.dark-mode #scroll-indicator:hover .scroll-up :nth-child(3) {
-   display: flex;
-}
-
-.dark-mode #scroll-indicator:hover .scroll-down :nth-child(3),
-.dark-mode #scroll-indicator:hover .scroll-up :nth-child(3) {
+#scroll-indicator:hover :nth-child(1),
+.dark-mode #scroll-indicator :nth-child(1),
+.dark-mode #scroll-indicator:hover :nth-child(1),
+.dark-mode #scroll-indicator:hover :nth-child(3) {
    display: none;
 }
 
-.dark-mode #scroll-indicator:hover .scroll-down :nth-child(4),
-.dark-mode #scroll-indicator:hover .scroll-up :nth-child(4) {
+#scroll-indicator:hover :nth-child(2),
+.dark-mode #scroll-indicator :nth-child(3),
+.dark-mode #scroll-indicator:hover :nth-child(3),
+.dark-mode #scroll-indicator:hover :nth-child(4) {
    display: flex;
 }
 
@@ -264,7 +216,7 @@ main {
 }
 
 /* ===========================
-   Media Queries
+   Responsive Styles
    =========================== */
 @media screen and (max-width: 550px) {
    .about-me,

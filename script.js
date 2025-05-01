@@ -57,7 +57,7 @@ function scrollIndicator() {
     scrollUpButton.style.display = "none";
     scrollDownButton.style.display = "none";
 
-    if (scrolled >= 0.99) {
+    if (scrolled >= 0.999) {
         scrollUpButton.style.display = "flex";
     } else {
         scrollDownButton.style.display = "flex";
