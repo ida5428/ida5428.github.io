@@ -24,7 +24,7 @@
    CSS Variables
    =========================== */
 :root {
-   --base-colour: rgb(255, 255, 255);
+   --base-colour: white;
    --base-variant-1: rgb(230, 230, 230);
    --base-variant-2: rgb(245, 245, 245);
    --secondary-text-colour: rgb(0, 0, 0);
@@ -241,54 +241,22 @@ main {
 }
 
 /* ===========================
-   About Me and Experience Styles
+   Desmos Styles
    =========================== */
-.about-me,
-.experience {
-   align-items: baseline;
-   display: inline-flex;
-   margin-top: 30px;
-}
-
-.am-title,
-.exp-title {
-   color: var(--secondary-text-colour);
-   font-size: 26px;
-   position: sticky;
-   text-align: right;
-   top: 70px;
-   width: 200px;
-}
-
-.am-content,
-.exp-content {
-   margin: 0 5vw;
-   max-width: 45vw;
-   text-align: left;
+.desmos iframe {
+   background-color: white;
+   border-radius: 15px;
+   padding: 5px;
 }
 
 /* ===========================
-   Media Queries
+   Responsive Styles
    =========================== */
 @media screen and (max-width: 550px) {
-   .about-me,
-   .experience {
-      display: grid;
-      margin-top: 30px;
-   }
-
-   .am-title,
-   .exp-title {
-      font-size: 22px;
-      position: relative;
-      text-align: left;
-      top: 0;
-   }
-
-   .am-content,
-   .exp-content {
-      font-size: 18px;
-      margin: 10px 10px;
-      max-width: fit-content;
+   .desmos iframe {
+      height: 90vw;
+      max-height: 500px;
+      max-width: 500px;
+      width: 90vw;
    }
 }
