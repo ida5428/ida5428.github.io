@@ -43,18 +43,8 @@ function scrollIndicator() {
     const scrollUpButton = document.querySelector(".scroll-up");
     const scrollDownButton = document.querySelector(".scroll-down");
 
-    // Get the full height and viewport height
-    const fullHeight = Math.max(
-        document.body.scrollHeight,
-        document.body.offsetHeight,
-        document.documentElement.clientHeight,
-        document.documentElement.scrollHeight,
-        document.documentElement.offsetHeight
-    );
-    const viewportHeight = window.innerHeight;
-
     // Check if page is scrollable
-    if (fullHeight <= viewportHeight) {
+    if (document.body.scrollHeight <= document.documentElement.clientHeight) {
         scrollUpButton.style.display = "none";
         scrollDownButton.style.display = "none";
         return;

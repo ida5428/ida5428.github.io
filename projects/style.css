@@ -164,10 +164,6 @@ header p {
    position: fixed;
 }
 
-.scroll-up {
-   display: none;
-}
-
 .scroll-up :nth-child(2),
 .scroll-up :nth-child(3),
 .scroll-up :nth-child(4),
