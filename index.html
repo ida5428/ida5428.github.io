@@ -7,43 +7,35 @@
    <link rel="icon" href="favicon.png" type="image/png">
    <link rel="stylesheet" href="style.css">
    <script src="script.js"></script>
-   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
 
    <header>
-      <p>id__a</p>
+      <p><a href="#">id__a</a></p>
       <nav class="nav-links">
          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="projects/">Projects</a></li>
-            <li id="theme-toggle" onclick="themeToggle()">
-               <box-icon name='sun'></box-icon>
-               <box-icon name='sun' type="solid"></box-icon>
-               <box-icon name='moon' color="white"></box-icon>
-               <box-icon name='moon' color="white" type="solid"></box-icon>
+            <li><a href="#about-me">About Me</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li  class="theme-toggle" onclick="themeToggle()">
+               <i class='bx bx-sun bx-sm'></i>
+               <i class='bx bxs-sun bx-sm'></i>
+               <i class='bx bx-moon bx-sm'></i>
+               <i class='bx bxs-moon bx-sm'></i>
             </li>
          </ul>
       </nav>
    </header>
 
-   <main>
-      <div id="scroll-indicator">
-         <div class="scroll-down" onclick="scrollBottomFunction()">
-            <box-icon name='chevron-down' size="md"></box-icon>
-            <box-icon name='chevrons-down' size="md"></box-icon>
-            <box-icon name='chevron-down' size="md" color="white"></box-icon>
-            <box-icon name='chevrons-down' size="md" color="white"></box-icon>
-         </div>
-         <div class="scroll-up" onclick="scrollTopFunction()">
-            <box-icon name='chevron-up' size="md"></box-icon>
-            <box-icon name='chevrons-up' size="md"></box-icon>
-            <box-icon name='chevron-up' size="md" color="white"></box-icon>
-            <box-icon name='chevrons-up' size="md" color="white"></box-icon>
-         </div>
-      </div>
+   <div class="scroll-button">
+      <a href="#">
+         <i class='bx bx-chevron-up bx-md'></i>
+      </a>
+   </div>
 
-      <div class="about-me">
+   <main>
+      <div class="about-me" id="about-me">
          <div class="am-title">
             <h3>About Me</h3>
          </div>
@@ -57,7 +49,7 @@
          </div>
       </div>
 
-      <div class="experience">
+      <div class="experience" id="experience">
          <div class="exp-title">
             <h3>Experience</h3>
          </div>
@@ -70,7 +62,7 @@
          </div>
       </div>
 
-      <div class="feat-projects">
+      <div class="feat-projects" id="projects">
          <div class="fp-title">
             <h3>Featured Projects</h3>
          </div>
@@ -78,26 +70,26 @@
             <div class="fp-projects">
                <div class="project">
                   <div class="project-content">
-                     <h2>thing 1</h2>
-                     <p>text</p>
-                     <img src="favicon.png">
+                     <h2>Project 1</h2>
+                     <p>[text]</p>
                      <p>Read More</p>
                   </div>
                </div>
                <div class="project">
                   <div class="project-content">
-                     <h2>thing 2</h2>
-                     <p>text</p>
+                     <h2>Project 2</h2>
+                     <p>[text]</p>
                      <p>Read More</p>
                   </div>
                </div>
                <div class="project">
                   <div class="project-content">
-                     <h2>thing 3</h2>
-                     <p>text</p>
-                     <p><a href="/projects/">read more</a></p>
+                     <h2>Project 3</h2>
+                     <p>[text]</p>
+                     <p>Read More</p>
                   </div>
                </div>
+               <p><a href="/projects/">View All Projects</a></p>
             </div>
          </div>
       </div>

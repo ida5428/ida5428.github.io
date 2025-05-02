@@ -7,42 +7,32 @@
    <link rel="icon" href="../favicon.png" type="image/png">
    <link rel="stylesheet" href="../style.css">
    <script src="../script.js"></script>
-   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
 
    <header>
-      <p>id__a</p>
+      <p><a href="../">id__a</a></p>
       <nav class="nav-links">
          <ul>
             <li><a href="../">Home</a></li>
-            <li><a href="#">Projects</a></li>
-            <li id="theme-toggle" onclick="themeToggle()">
-               <box-icon name='sun'></box-icon>
-               <box-icon name='sun' type="solid"></box-icon>
-               <box-icon name='moon' color="white"></box-icon>
-               <box-icon name='moon' color="white" type="solid"></box-icon>
+            <li  class="theme-toggle" onclick="themeToggle()">
+               <i class='bx bx-sun bx-sm'></i>
+               <i class='bx bxs-sun bx-sm'></i>
+               <i class='bx bx-moon bx-sm'></i>
+               <i class='bx bxs-moon bx-sm'></i>
             </li>
          </ul>
       </nav>
    </header>
 
-   <main>
-      <div id="scroll-indicator">
-         <div class="scroll-down" onclick="scrollBottomFunction()">
-            <box-icon name='chevron-down' size="md"></box-icon>
-            <box-icon name='chevrons-down' size="md"></box-icon>
-            <box-icon name='chevron-down' size="md" color="white"></box-icon>
-            <box-icon name='chevrons-down' size="md" color="white"></box-icon>
-         </div>
-         <div class="scroll-up" onclick="scrollTopFunction()">
-            <box-icon name='chevron-up' size="md"></box-icon>
-            <box-icon name='chevrons-up' size="md"></box-icon>
-            <box-icon name='chevron-up' size="md" color="white"></box-icon>
-            <box-icon name='chevrons-up' size="md" color="white"></box-icon>
-         </div>
-      </div>
+   <div class="scroll-button">
+      <a href="#">
+         <i class='bx bx-chevron-up bx-md'></i>
+      </a>
+   </div>
 
+   <main>
       <div class="desmos">
          <iframe src="https://www.desmos.com/calculator/nt7gu8pcpo?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
          <iframe src="https://www.desmos.com/calculator/dbckog4trw?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>

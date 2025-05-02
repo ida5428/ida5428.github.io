@@ -21,9 +21,9 @@
    =========================== */
 :root {
    --base-colour: rgb(255, 255, 255);
-   --base-variant-1: rgb(235, 235, 235);
-   --base-variant-2: rgb(220, 220, 220);
-   --base-variant-3: rgb(200, 200, 200);
+   --base-variant-1: rgb(245, 245, 245);
+   --base-variant-2: rgb(235, 235, 235);
+   --base-variant-3: rgb(220, 220, 220);
    --secondary-text-colour: rgb(0, 0, 0);
    --text-colour: rgb(50, 50, 50);
 }
@@ -32,7 +32,7 @@
    --base-colour: rgb(30, 30, 30);
    --base-variant-1: rgb(45, 45, 45);
    --base-variant-2: rgb(60, 60, 60);
-   --base-variant-3: rgb(75, 75, 75);
+   --base-variant-3: rgb(80, 80, 80);
    --secondary-text-colour: rgb(255, 255, 255);
    --text-colour: rgb(255, 255, 255);
 }
@@ -40,45 +40,64 @@
 /* ===========================
    Theme Toggle Styles
    =========================== */
-#theme-toggle {
+
+.theme-toggle {
+   display: flex;
    background-color: var(--base-variant-1);
    border-radius: 100px;
-   cursor: pointer;
-   display: inline-flex;
-   padding: 2px;
+   gap: 6px;
+   padding: 3px;
 }
 
-#theme-toggle:hover :nth-child(2),
-.dark-mode #theme-toggle:hover :nth-child(4) {
-   background-color: var(--base-variant-2);
+.theme-toggle i {
+   padding: 2px;;
    border-radius: 100px;
-   display: flex;
-   padding: 1px;
-   transform: scale(1.5);
-   border: 1px solid var(--base-variant-1);
-   filter: drop-shadow(0px 0px 3px var(--base-variant-3));
+   cursor: pointer;
+   gap: 10px;
+   transition: all 0.2s ease 0s;
 }
 
-#theme-toggle :nth-child(2),
-#theme-toggle :nth-child(3),
-#theme-toggle :nth-child(4) {
+.theme-toggle .bxs-sun,
+.theme-toggle .bxs-moon {
+   background-color: var(--base-variant-3);
+}
+
+.theme-toggle:hover .bxs-sun{
+   border-radius: 100px;
+   background-color: rgb(255, 216, 168);
+   scale: 1.2;
+   filter: drop-shadow(0 0 2px rgba(255, 216, 168, 1));
+}
+
+.theme-toggle:hover .bxs-moon{
+   border-radius: 100px;
+   background-color: rgb(109, 119, 167);
+   scale: 1.2;
+   filter: drop-shadow(0 0 2px rgba(109, 119, 167, 1));
+}
+
+.theme-toggle .bx,
+.dark-mode .theme-toggle .bxs-sun,
+.dark-mode .theme-toggle .bx-moon {
    display: none;
 }
 
-#theme-toggle:hover :nth-child(1),
-.dark-mode #theme-toggle :nth-child(1),
-.dark-mode #theme-toggle:hover :nth-child(2),
-.dark-mode #theme-toggle:hover :nth-child(3) {
-   display: none;
-}
-
-.dark-mode #theme-toggle :nth-child(3) {
+.theme-toggle .bxs-sun,
+.theme-toggle .bx-moon,
+.dark-mode .theme-toggle .bx-sun,
+.dark-mode .theme-toggle .bxs-moon {
    display: flex;
 }
 
 /* ===========================
-   Body Styles
-   =========================== */
+Body Styles
+=========================== */
+
+html {
+   scroll-behavior: smooth;
+   color: var(--text-colour);
+}
+
 body {
    background-color: var(--base-colour);
    color: var(--text-colour);
@@ -88,7 +107,7 @@ body {
 }
 
 /* ===========================
-   Header Styles
+   Header + Navigation Styles
    =========================== */
 header {
    align-items: center;
@@ -96,107 +115,85 @@ header {
    border-bottom: 1px ridge;
    display: flex;
    justify-content: space-between;
-   padding: 10px 20px;
+   padding: 8px 10px;
    position: sticky;
    top: 0;
    z-index: 100;
    font-size: 20px;
    cursor: default;
+   transition: all 0.2s ease;
 }
 
-/* ===========================
-   Navigation Styles
-   =========================== */
+header a {
+   color: var(--text-colour);
+   text-decoration: none;
+   padding: 4px 6px;
+   margin-right: 10px;
+   transition: all 0.2s ease;
+}
+
+header a:hover {
+   background-color: var(--base-variant-2);
+   border-radius: 10px;
+   color: var(--secondary-text-colour);
+   padding: 4px 6px;
+}
+
 .nav-links ul {
    list-style: none;
    display: inline-flex;
    align-items: center;
 }
 
-.nav-links a {
-   color: var(--text-colour);
-   padding: 4px 6px;
-   margin-right: 10px;
-   text-decoration: none;
-   transition: all 0.2s ease;
-}
-
-.nav-links a:hover {
-   background-color: var(--base-variant-1);
-   border-radius: 5px;
-   color: var(--secondary-text-colour);
-   padding: 4px 6px;
-   text-decoration: underline;
-   transition: all 0.2s ease;
-}
-
 /* ===========================
 Scroll Button Styles
 =========================== */
-.scroll-down,
-.scroll-up {
-   align-items: center;
-   display: flex;
+.scroll-button {
    justify-content: center;
 }
 
-.scroll-down box-icon,
-.scroll-up box-icon {
+.scroll-button i {
+   color: var(--text-colour);
    background-color: var(--base-variant-1);
    border-radius: 100px;
    bottom: 30px;
    position: fixed;
-   border: 2px solid var(--base-variant-2);
-   filter: drop-shadow(0px 0px 4px var(--base-variant-3));
    z-index: 100;
+   transition: all 0.2s ease;
 }
 
-#scroll-indicator:hover box-icon,
-.dark-mode #scroll-indicator:hover box-icon {
+.scroll-button:hover i {
    background-color: var(--base-variant-2);
    transform: scale(1.2);
-   border: 2px solid var(--base-variant-1);
-   filter: drop-shadow(0px 0px 2px var(--base-variant-3));
-}
-
-#scroll-indicator :nth-child(2),
-#scroll-indicator :nth-child(3),
-#scroll-indicator :nth-child(4) {
-   display: none;
-}
-
-#scroll-indicator:hover :nth-child(1),
-.dark-mode #scroll-indicator :nth-child(1),
-.dark-mode #scroll-indicator:hover :nth-child(1),
-.dark-mode #scroll-indicator:hover :nth-child(3) {
-   display: none;
-}
-
-#scroll-indicator:hover :nth-child(2),
-.dark-mode #scroll-indicator :nth-child(3),
-.dark-mode #scroll-indicator:hover :nth-child(3),
-.dark-mode #scroll-indicator:hover :nth-child(4) {
-   display: flex;
+   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.2));
 }
 
 /* ===========================
    Main Content Styles
    =========================== */
 main {
-   margin: 15px;
-   margin-bottom: 100px;
-   text-align: center;
+   margin: 150px 15px;
+   justify-content: center;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 100px;
 }
 
 /* ===========================
    About Me, Experience and Feat. Projects Styles
    =========================== */
+
+#about-me,
+#experience,
+#projects {
+   scroll-margin-top: 70px;
+}
+
 .about-me,
 .experience,
 .feat-projects {
    align-items: flex-start;
    display: inline-flex;
-   margin-top: 50px;
 }
 
 .am-title,
@@ -215,7 +212,6 @@ main {
 .fp-content {
    margin: 0 5vw;
    max-width: 40vw;
-   text-align: left;
 }
 
 .fp-projects {

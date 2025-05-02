@@ -40,13 +40,11 @@ document.addEventListener('DOMContentLoaded', scrollIndicator);
 // Function to show scrolling indicator
 // Modified code form W3Schools
 function scrollIndicator() {
-    const scrollUpButton = document.querySelector(".scroll-up");
-    const scrollDownButton = document.querySelector(".scroll-down");
+    const scrollButton = document.querySelector(".scroll-button");
 
     // Check if page is scrollable
     if (document.body.scrollHeight <= document.documentElement.clientHeight) {
-        scrollUpButton.style.display = "none";
-        scrollDownButton.style.display = "none";
+        scrollButton.style.display = "none";
         return;
     }
 
@@ -54,27 +52,9 @@ function scrollIndicator() {
     var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     var scrolled = (winScroll / height);
 
-    scrollUpButton.style.display = "none";
-    scrollDownButton.style.display = "none";
+    scrollButton.style.display = "none";
 
     if (scrolled >= 0.999) {
-        scrollUpButton.style.display = "flex";
-    } else {
-        scrollDownButton.style.display = "flex";
+        scrollButton.style.display = "flex";
     }
-}
-
-function scrollTopFunction() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
-
-function scrollBottomFunction() {
-    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    window.scrollTo({
-        top: height,
-        behavior: 'smooth'
-    });
 }
