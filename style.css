@@ -84,6 +84,7 @@ body {
    color: var(--text-colour);
    font-family: monospace;
    font-size: 18px;
+   transition: all 0.2s ease;
 }
 
 /* ===========================
@@ -100,9 +101,6 @@ header {
    top: 0;
    z-index: 100;
    font-size: 20px;
-}
-
-header p {
    cursor: default;
 }
 
@@ -120,6 +118,7 @@ header p {
    padding: 4px 6px;
    margin-right: 10px;
    text-decoration: none;
+   transition: all 0.2s ease;
 }
 
 .nav-links a:hover {
@@ -132,8 +131,8 @@ header p {
 }
 
 /* ===========================
-   Scroll Button Styles
-   =========================== */
+Scroll Button Styles
+=========================== */
 .scroll-down,
 .scroll-up {
    align-items: center;
@@ -148,7 +147,8 @@ header p {
    bottom: 30px;
    position: fixed;
    border: 2px solid var(--base-variant-2);
-   filter: drop-shadow(0px 0px 5px var(--base-variant-3));
+   filter: drop-shadow(0px 0px 4px var(--base-variant-3));
+   z-index: 100;
 }
 
 #scroll-indicator:hover box-icon,
@@ -156,7 +156,7 @@ header p {
    background-color: var(--base-variant-2);
    transform: scale(1.2);
    border: 2px solid var(--base-variant-1);
-   filter: drop-shadow(0px 0px 5px var(--base-variant-3));
+   filter: drop-shadow(0px 0px 2px var(--base-variant-3));
 }
 
 #scroll-indicator :nth-child(2),
@@ -189,19 +189,21 @@ main {
 }
 
 /* ===========================
-   About Me and Experience Styles
+   About Me, Experience and Feat. Projects Styles
    =========================== */
 .about-me,
-.experience {
-   align-items: baseline;
+.experience,
+.feat-projects {
+   align-items: flex-start;
    display: inline-flex;
-   margin-top: 30px;
+   margin-top: 50px;
 }
 
 .am-title,
-.exp-title {
+.exp-title,
+.fp-title {
    color: var(--secondary-text-colour);
-   font-size: 26px;
+   font-size: 24px;
    position: sticky;
    text-align: right;
    top: 70px;
@@ -209,10 +211,44 @@ main {
 }
 
 .am-content,
-.exp-content {
+.exp-content,
+.fp-content {
    margin: 0 5vw;
-   max-width: 45vw;
+   max-width: 40vw;
    text-align: left;
+}
+
+.fp-projects {
+   display: inline-flex;
+   flex-wrap: wrap;
+   gap: 40px;
+   justify-content: center;
+
+}
+
+.project {
+   width: 30vw;
+   height: 30vw;
+   border-radius: 20px;
+   box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1);
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   transition: all 0.2s ease;
+}
+
+.project-content a {
+   color: var(--text-colour);
+   text-decoration: none;
+}
+
+.project:hover {
+   scale: 1.1;
+   transition: all 0.2s ease;
+}
+
+.project-content {
+   margin: 10px;
 }
 
 /* ===========================
@@ -220,23 +256,38 @@ main {
    =========================== */
 @media screen and (max-width: 550px) {
    .about-me,
-   .experience {
+   .experience,
+   .feat-projects {
       display: grid;
       margin-top: 30px;
    }
 
    .am-title,
-   .exp-title {
+   .exp-title,
+   .fp-title {
       font-size: 22px;
       position: relative;
       text-align: left;
       top: 0;
+      width: fit-content;
    }
 
    .am-content,
-   .exp-content {
+   .exp-content,
+   .fp-content {
       font-size: 18px;
       margin: 10px 10px;
       max-width: fit-content;
+   }
+
+   .fp-projects {
+      margin: auto;
+      background-color: rgba(0, 0, 0, 0);
+   }
+
+   .project {
+      margin: auto;
+      width: 80vw;
+      height: 80vw;
    }
 }
