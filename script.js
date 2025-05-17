@@ -1,9 +1,15 @@
 // Function to set the theme
 function setTheme(isDark) {
+    const sunIcon = document.getElementById('theme-icon-sun');
+    const moonIcon = document.getElementById('theme-icon-moon');
     if (isDark) {
         document.body.classList.add('dark-mode');
+        sunIcon.className = 'bx bx-sun bx-sm'; // outline sun in dark mode
+        moonIcon.className = 'bx bxs-moon bx-sm'; // filled moon in dark mode
     } else {
         document.body.classList.remove('dark-mode');
+        sunIcon.className = 'bx bxs-sun bx-sm'; // filled sun in light mode
+        moonIcon.className = 'bx bx-moon bx-sm'; // outline moon in light mode
     }
     // Save theme preference to localStorage
     localStorage.setItem('darkMode', isDark);
@@ -11,8 +17,8 @@ function setTheme(isDark) {
 
 // Function to toggle theme
 function themeToggle() {
-    const isDark = document.body.classList.toggle('dark-mode');
-    localStorage.setItem('darkMode', isDark);
+    const isDark = !document.body.classList.contains('dark-mode');
+    setTheme(isDark);
 }
 
 // Check for saved theme preference on page load
