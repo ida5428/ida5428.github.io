@@ -38,7 +38,6 @@ window.onresize = function() {scrollIndicator()};
 document.addEventListener('DOMContentLoaded', scrollIndicator);
 
 // Function to show scrolling indicator
-// Modified code form W3Schools
 function scrollIndicator() {
     const scrollButton = document.querySelector(".scroll-button");
 
