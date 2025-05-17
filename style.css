@@ -56,12 +56,6 @@
    transition: all 0.2s ease;
 }
 
-.theme-toggle:hover .slider-track {
-   transform: scale(1.1);
-   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-   background-color: var(--base-variant-2);
-}
-
 .slider-indicator {
    position: absolute;
    width: calc(50% - 6px);
@@ -70,25 +64,46 @@
    border-radius: 100px;
    top: 3px;
    left: 3px;
-   transition: transform 0.3s ease,
-               background-color 0.3s ease;
+   transition: transform 0.2s ease,
+               background-color 0.2s ease;
    z-index: 1;
 }
 
 .dark-mode .slider-indicator {
    transform: translateX(calc(100% + 6px));
-   transition: transform 0.3s ease,
-               background-color 0.3s ease;
 }
 
 .theme-toggle:hover .slider-indicator {
-   background-color: rgb(255, 216, 168, 0.3);
-   box-shadow: 0 0 5px rgba(255, 216, 168, 0.3);
+   background-color: rgb(255, 216, 168);
+   filter: drop-shadow(0 0 2px rgba(255, 216, 168, 1));
+   transform: scale(1.2);
+}
+
+.dark-mode .theme-toggle:hover #theme-icon-moon {
+   transform: scale(1.2);
+}
+
+.theme-toggle:hover #theme-icon-sun {
+   transform: scale(1.2);
+}
+
+.dark-mode .theme-toggle:hover #theme-icon-sun {
+   /* This is here to ensure sun icon doesn't swell when in dark mode */
+   transform: scale(1);
 }
 
 .dark-mode .theme-toggle:hover .slider-indicator {
-   background-color: rgba(109, 119, 167, 0.3);
-   box-shadow: 0 0 5px rgba(109, 119, 167, 0.3);
+   background-color: rgba(109, 119, 167);
+   filter: drop-shadow(0 0 2px rgba(109, 119, 167, 1));
+   transform: translateX(calc(100% + 6px)) scale(1.15);
+}
+
+.theme-toggle:active .slider-indicator {
+   transform: scale(0.95);
+}
+
+.dark-mode .theme-toggle:active .slider-indicator {
+   transform: translateX(calc(100% + 6px)) scale(0.95);
 }
 
 .theme-toggle i {
@@ -98,10 +113,6 @@
    z-index: 2;
    cursor: pointer;
    transition: all 0.2s ease;
-}
-
-.theme-toggle:active .slider-track {
-   transform: scale(0.95);
 }
 
 /* ===========================
