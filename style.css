@@ -56,20 +56,39 @@
    transition: all 0.2s ease;
 }
 
+.theme-toggle:hover .slider-track {
+   transform: scale(1.1);
+   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+   background-color: var(--base-variant-2);
+}
+
 .slider-indicator {
    position: absolute;
-   width: calc(50% - 3px);
+   width: calc(50% - 6px);
    height: calc(100% - 6px);
    background-color: var(--base-variant-3);
    border-radius: 100px;
    top: 3px;
    left: 3px;
-   transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+   transition: transform 0.3s ease,
+               background-color 0.3s ease;
    z-index: 1;
 }
 
 .dark-mode .slider-indicator {
-   transform: translateX(100%);
+   transform: translateX(calc(100% + 6px));
+   transition: transform 0.3s ease,
+               background-color 0.3s ease;
+}
+
+.theme-toggle:hover .slider-indicator {
+   background-color: rgb(255, 216, 168, 0.3);
+   box-shadow: 0 0 5px rgba(255, 216, 168, 0.3);
+}
+
+.dark-mode .theme-toggle:hover .slider-indicator {
+   background-color: rgba(109, 119, 167, 0.3);
+   box-shadow: 0 0 5px rgba(109, 119, 167, 0.3);
 }
 
 .theme-toggle i {
@@ -81,21 +100,8 @@
    transition: all 0.2s ease;
 }
 
-.theme-toggle:hover #theme-icon-sun.bxs-sun {
-   background-color: rgb(255, 216, 168);
-   scale: 1.2;
-   filter: drop-shadow(0 0 2px rgba(255, 216, 168, 1));
-}
-
-.theme-toggle:hover #theme-icon-moon.bxs-moon {
-   background-color: rgb(109, 119, 167);
-   scale: 1.2;
-   filter: drop-shadow(0 0 2px rgba(109, 119, 167, 1));
-}
-
-.theme-toggle:active #theme-icon-sun.bxs-sun,
-.dark-mode .theme-toggle:active #theme-icon-moon.bxs-moon {
-   transform: scale(0.8);
+.theme-toggle:active .slider-track {
+   transform: scale(0.95);
 }
 
 /* ===========================
