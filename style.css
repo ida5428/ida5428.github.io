@@ -42,58 +42,77 @@
    =========================== */
 
 .theme-toggle {
+   cursor: pointer;
+   transition: all 0.2s ease;
+}
+
+.slider-track {
+   position: relative;
    display: flex;
    background-color: var(--base-variant-1);
    border-radius: 100px;
    gap: 6px;
    padding: 3px;
-   cursor: pointer;
    transition: all 0.2s ease;
+}
+
+.slider-indicator {
+   position: absolute;
+   width: calc(50% - 6px);
+   height: calc(100% - 6px);
+   background-color: var(--base-variant-3);
+   border-radius: 100px;
+   top: 3px;
+   left: 3px;
+   transition: transform 0.2s ease,
+               background-color 0.2s ease;
+   z-index: 1;
+}
+
+.dark-mode .slider-indicator {
+   transform: translateX(calc(100% + 6px));
+}
+
+.theme-toggle:hover .slider-indicator {
+   background-color: rgb(255, 216, 168);
+   filter: drop-shadow(0 0 2px rgba(255, 216, 168, 1));
+   transform: scale(1.2);
+}
+
+.dark-mode .theme-toggle:hover #theme-icon-moon {
+   transform: scale(1.2);
+}
+
+.theme-toggle:hover #theme-icon-sun {
+   transform: scale(1.2);
+}
+
+.dark-mode .theme-toggle:hover #theme-icon-sun {
+   /* This is here to ensure sun icon doesn't swell when in dark mode */
+   transform: scale(1);
+}
+
+.dark-mode .theme-toggle:hover .slider-indicator {
+   background-color: rgba(109, 119, 167);
+   filter: drop-shadow(0 0 2px rgba(109, 119, 167, 1));
+   transform: translateX(calc(100% + 6px)) scale(1.15);
+}
+
+.theme-toggle:active .slider-indicator {
+   transform: scale(0.95);
+}
+
+.dark-mode .theme-toggle:active .slider-indicator {
+   transform: translateX(calc(100% + 6px)) scale(0.95);
 }
 
 .theme-toggle i {
-   padding: 2px;;
+   position: relative;
+   padding: 2px;
    border-radius: 100px;
+   z-index: 2;
    cursor: pointer;
-   gap: 10px;
    transition: all 0.2s ease;
-}
-
-.theme-toggle .bxs-sun,
-.theme-toggle .bxs-moon {
-   background-color: var(--base-variant-3);
-}
-
-.theme-toggle:hover .bxs-sun {
-   border-radius: 100px;
-   background-color: rgb(255, 216, 168);
-   scale: 1.2;
-   filter: drop-shadow(0 0 2px rgba(255, 216, 168, 1));
-}
-
-.theme-toggle:hover .bxs-moon {
-   border-radius: 100px;
-   background-color: rgb(109, 119, 167);
-   scale: 1.2;
-   filter: drop-shadow(0 0 2px rgba(109, 119, 167, 1));
-}
-
-.theme-toggle:active .bxs-sun,
-.dark-mode .theme-toggle:active .bxs-moon {
-   transform: scale(0.8);
-}
-
-.theme-toggle .bx,
-.dark-mode .theme-toggle .bxs-sun,
-.dark-mode .theme-toggle .bx-moon {
-   display: none;
-}
-
-.theme-toggle .bxs-sun,
-.theme-toggle .bx-moon,
-.dark-mode .theme-toggle .bx-sun,
-.dark-mode .theme-toggle .bxs-moon {
-   display: flex;
 }
 
 /* ===========================
