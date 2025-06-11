@@ -12,7 +12,7 @@
 }
 
 /* Hide Scroll Bar */
-:-webkit-scrollbar {
+::-webkit-scrollbar {
    display: none;
 }
 
@@ -30,20 +30,88 @@
 
 .dark-mode {
    --base-colour: rgb(30, 30, 30);
-   --base-variant-1: rgb(45, 45, 45);
-   --base-variant-2: rgb(60, 60, 60);
-   --base-variant-3: rgb(80, 80, 80);
-   --text-colour: rgb(255, 255, 255);
-   --secondary-text-colour: rgb(230, 230, 230);
+   --base-variant-1: rgb(40, 40, 40);
+   --base-variant-2: rgb(50, 50, 50);
+   --base-variant-3: rgb(60, 60, 60);
+   --text-colour: rgb(220, 220, 220);
+   --secondary-text-colour: rgb(255, 255, 255);
+}
+
+/* ===========================
+   HTML, Body and Main Content Styles
+   =========================== */
+html {
+   scroll-behavior: smooth;
+   background-color: var(--base-colour);
+   font-family: monospace;
+   font-size: 18px;
+   color: var(--text-colour);
+   transition: all 0.2s ease;
+}
+
+main {
+   display: flex;
+   flex-direction: column;
+   gap: 100px;
+}
+
+.desmos {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+}
+
+.desmos iframe {
+   padding: 5px;
+   border-radius: 10px;
+   background-color: white;
+}
+
+/* ===========================
+   Navbar Styles
+   =========================== */
+header {
+   align-items: center;
+   background-color: var(--base-colour);
+   border-bottom: 1px ridge;
+   display: flex;
+   justify-content: space-between;
+   padding: 8px;
+   padding-left: 12px;
+   position: sticky;
+   top: 0;
+   z-index: 100;
+   font-size: 20px;
+   transition: all 0.2s ease;
+}
+
+header ul {
+   list-style: none;
+   display: flex;
+   align-items: center;
+   gap: 15px;
+   flex-wrap: wrap;
+   flex-direction: row;
+}
+
+header a {
+
+   color: var(--text-colour);
+   text-decoration: none;
+   transition: all 0.2s ease;
+}
+
+header:has(a:hover) a:not(:hover) {
+   opacity: 0.4;
 }
 
 /* ===========================
    Theme Toggle Styles
    =========================== */
-
 .theme-toggle {
    cursor: pointer;
-   transition: all 0.2s ease;
 }
 
 .slider-track {
@@ -64,51 +132,53 @@
    border-radius: 100px;
    top: 3px;
    left: 3px;
-   transition: transform 0.2s ease,
-               background-color 0.2s ease;
+   transition: transform 0.2s ease, background-color 0.2s ease;
    z-index: 1;
 }
 
 .dark-mode .slider-indicator {
-   transform: translateX(calc(100% + 6px));
+   left: unset;
+   right: 3px;
 }
 
+/* Hover states */
 .theme-toggle:hover .slider-indicator {
    background-color: rgb(255, 216, 168);
    filter: drop-shadow(0 0 2px rgba(255, 216, 168, 1));
    transform: scale(1.2);
 }
 
+.dark-mode .theme-toggle:hover .slider-indicator {
+   background-color: rgb(109, 119, 167);
+   filter: drop-shadow(0 0 2px rgba(109, 119, 167, 1));
+}
+
+.theme-toggle:hover #theme-icon-sun,
 .dark-mode .theme-toggle:hover #theme-icon-moon {
    transform: scale(1.2);
 }
 
-.theme-toggle:hover #theme-icon-sun {
-   transform: scale(1.2);
+.dark-mode .theme-toggle:hover #theme-icon-sun {
+   transform: scale(1); /* Prevent sun icon from scaling in dark mode */
 }
 
-.dark-mode .theme-toggle:hover #theme-icon-sun {
-   /* This is here to ensure sun icon doesn't swell when in dark mode */
+/* Active states */
+.theme-toggle:active .slider-indicator,
+.dark-mode .theme-toggle:active .slider-indicator {
+   transform: scale(1);
+   width: calc(100% - 6px);
+   transition: transform 0.1s ease, width 0.1s ease;
+}
+
+.theme-toggle:active #theme-icon-sun,
+.dark-mode .theme-toggle:active #theme-icon-moon {
    transform: scale(1);
 }
 
-.dark-mode .theme-toggle:hover .slider-indicator {
-   background-color: rgba(109, 119, 167);
-   filter: drop-shadow(0 0 2px rgba(109, 119, 167, 1));
-   transform: translateX(calc(100% + 6px)) scale(1.15);
-}
-
-.theme-toggle:active .slider-indicator {
-   transform: scale(0.95);
-}
-
-.dark-mode .theme-toggle:active .slider-indicator {
-   transform: translateX(calc(100% + 6px)) scale(0.95);
-}
-
+/* Icon styling */
 .theme-toggle i {
    position: relative;
-   padding: 2px;
+   padding: 3px;
    border-radius: 100px;
    z-index: 2;
    cursor: pointer;
@@ -116,55 +186,23 @@
 }
 
 /* ===========================
-   Navbar Styles
-   =========================== */
-header {
-   align-items: center;
-   background-color: var(--base-colour);
-   border-bottom: 1px ridge;
-   display: flex;
-   justify-content: space-between;
-   padding: 8px 10px;
-   position: sticky;
-   top: 0;
-   z-index: 100;
-   font-size: 20px;
-   transition: all 0.2s ease;
-}
-
-header a {
-   color: var(--text-colour);
-   text-decoration: none;
-   padding: 4px 6px;
-   margin-right: 10px;
-   transition: all 0.2s ease;
-}
-
-header a:hover {
-   transition: all 0.2s ease;
-   border-radius: 10px;
-   color: var(--secondary-text-colour);
-   padding: 4px 6px;
-}
-
-header:has(a:hover) a:not(:hover) {
-   opacity: 0.5;
-}
-
-.nav-links ul {
-   list-style: none;
-   display: inline-flex;
-   align-items: center;
-}
-
-/* ===========================
    Scroll Button Styles
    =========================== */
 .scroll-button {
+   visibility: hidden;
+   display: flex;
    justify-content: center;
+   align-items: center;
+   pointer-events: auto;
+   transition: all 0.2s ease;
 }
 
-.scroll-button i {
+.scroll-button.hidden {
+   opacity: 0;
+   pointer-events: none;
+}
+
+.scroll-button a {
    color: var(--text-colour);
    background-color: var(--base-variant-1);
    border-radius: 100px;
@@ -174,66 +212,64 @@ header:has(a:hover) a:not(:hover) {
    transition: all 0.2s ease;
 }
 
-.scroll-button:hover i {
+.scroll-button:hover a {
    background-color: var(--base-variant-2);
-   transform: scale(1.2);
    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.2));
 }
 
-/* ===========================
-   HTML, Body and Main Content Styles
-   =========================== */
-
-html {
-   color: var(--text-colour);
-   scroll-behavior: smooth;
-}
-
-body {
-   color: var(--text-colour);
-   background-color: var(--base-colour);
-   font-family: monospace;
-   font-size: 18px;
-   transition: all 0.2s ease;
-}
-
-main {
-   margin: 25px;
-   justify-content: center;
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
-   align-items: center;
-   gap: 100px;
+.scroll-button:hover i {
+   scale: 1.4;
 }
 
 /* ===========================
    Name Styles
    =========================== */
 .name {
-   font-size: 24px;
+   font-size: 20px;
    display: flex;
-   flex-direction: column;
+   margin-top: -57px;
+   height: 100vh;
    justify-content: center;
    align-items: center;
-   height: calc(100vh - 52px);
 }
 
-.name h2 {
-   animation: animation 0.5s;
+.name h1 {
+   animation: name-slide-up 0.8s;
 }
 
 .down-indicator {
+   visibility: hidden;
+   margin-bottom: -150px;
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
+   gap: 6px;
+   transform: translateY(-200px);
+   opacity: 0.8;
+   transition: opacity 0.4s ease-out, transform 0.6s ease-out;
+}
+
+.down-indicator.hidden {
+   transform: translateY(-250px);
+   opacity: 0;
+}
+
+.down-indicator .bx {
+   animation: arrow-opacity-cycle 1.8s infinite;
+}
+
+.down-indicator :nth-child(2) {
+   animation-delay: 0.5s;
+}
+
+.down-indicator :nth-child(3) {
+   animation-delay: 1s;
 }
 
 /* ===========================
    About Me, Experience and Projects Styles
    =========================== */
-
 #about-me,
 #experience,
 #projects {
@@ -242,115 +278,108 @@ main {
 
 .about-me,
 .experience,
-.feat-projects {
+.projects {
    align-items: flex-start;
-   display: inline-flex;
+   justify-content: center;
+   display: flex;
 }
 
 .am-title,
 .exp-title,
-.fp-title {
+.proj-title {
    color: var(--secondary-text-colour);
    font-size: 24px;
    position: sticky;
    text-align: right;
    top: 70px;
-   width: 300px;
+   width: 200px;
    transition: all 0.2s ease;
 }
 
 .am-content,
-.exp-content,
-.fp-content {
+.exp-content {
    margin: 0 5vw;
    max-width: 40vw;
 }
 
-.fp-projects {
+.proj-content {
+   margin: 0 5vw;
+   max-width: 40vw;
    display: flex;
    flex-wrap: wrap;
-   gap: 40px;
+   gap: 50px;
    justify-content: center;
+   margin-bottom: 100px;
 }
 
-.project {
+.proj-content a {
+   color: var(--text-colour);
+   text-decoration: none;
+   transition: all 0.2s ease;
+}
+
+.project-card {
+   padding: 10px;
    width: 17vw;
    height: 17vw;
    border-radius: 20px;
    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1);
    display: flex;
    flex-direction: column;
-   flex-wrap: wrap;
    text-align: center;
-   transition: all 0.2s ease;
-   margin: 10px;
+   transition: transform 0.2s ease, opacity 0.5s ease, filter 0.5s ease;
+   opacity: 1;
 }
 
-.project-content a {
-   color: var(--text-colour);
-   text-decoration: none;
+.project-card:hover {
+   transform: scale(1.1);
 }
 
-.project:hover {
-   scale: 1.1;
-}
-
-.fp-projects:has(.project:hover) .project:not(:hover) {
+.proj-content:has(.project-card:hover) .project-card:not(:hover) {
    opacity: 0.5;
-   filter: blur(1px);
+   filter: blur(1.5px);
+}
+
+.proj-content h3:not(.card-content h3) {
+   padding: 8px 10px;
+   background-color: var(--base-variant-1);
+   border-radius: 10px;
+   transition: all 0.2s ease;
+}
+
+.proj-content h3:not(.card-content h3):hover {
+   background-color: var(--base-variant-2);
+   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.1));
 }
 
 /* ===========================
    Responsive Styles
    =========================== */
 @media screen and (max-width: 550px) {
-   .about-me,
-   .experience,
-   .feat-projects {
-      display: grid;
-      margin-top: 30px;
-   }
 
-   .am-title,
-   .exp-title,
-   .fp-title {
-      font-size: 22px;
-      position: relative;
-      text-align: left;
-      top: 0;
-      width: fit-content;
-   }
+}
 
-   .am-content,
-   .exp-content,
-   .fp-content {
-      font-size: 18px;
-      margin: 10px 10px;
-      max-width: fit-content;
-   }
 
-   .fp-projects {
-      margin: auto;
-      background-color: rgba(0, 0, 0, 0);
+/* ===========================
+   Animations
+   =========================== */
+@keyframes name-slide-up {
+   0% {
+      opacity: 0;
+      transform: translateY(60px) scale(0.9);
    }
-
-   .project {
-      margin: auto;
-      width: 80vw;
-      height: 80vw;
+   100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
    }
 }
 
-@keyframes animation {
-   0% {
-      opacity: 0%;
-      transform: translateY(60px);
-      scale: 0.9;
+@keyframes arrow-opacity-cycle {
+   0%, 100% {
+      opacity: 0.8;
    }
 
-   100% {
-      opacity: 100%;
-      transform: translateY(0px);
-      scale: 1;
+   40% {
+      opacity: 0.2;
    }
 }
